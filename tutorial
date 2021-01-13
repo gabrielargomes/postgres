@@ -1,0 +1,129 @@
+Start a Postgres server.
+
+Launch Terminator.
+
+Type docker run --name LiferayGG -e POSTGRES_PASSWORD=1002 -p 5432:5432 -d postgres. This runs a Docker image called LiferayGG in the background.
+
+ Type d exec -it LiferayGG sh.
+
+ Type /usr/bin/psql -U postgres postgres to see its startup logs.
+
+ Type telnet localhost 3307. This command fails because nothing is running on port 3307.
+
+ Type telnet localhost 5432. This command works because Postgres is running on port 5432.
+
+ Type <CONTROL+]> and then type quit to exit out of telnet on port  5432.
+
+ Type d stop LiferayGG.
+
+ Type telnet localhost 5432. This command fails because LiferayGG is stopped.
+
+ Type d rm LiferayGG.Start a Postgres server.
+
+Launch Terminator.
+
+Type docker run --name LiferayGG -e POSTGRES_PASSWORD=1002 -p 5432:5432 -d postgres. This runs a Docker image called LiferayGG in the background.
+
+ Type d exec -it LiferayGG sh.
+
+ Type /usr/bin/psql -U postgres postgres to see its startup logs.
+
+ Type telnet localhost 3307. This command fails because nothing is running on port 3307.
+
+ Type telnet localhost 5432. This command works because Postgres is running on port 5432.
+
+ Type <CONTROL+]> and then type quit to exit out of telnet on port  5432.
+
+ Type d stop LiferayGG.
+
+ Type telnet localhost 5432. This command fails because LiferayGG is stopped.
+
+ Type d rm LiferayGG.
+
+Type d start LiferayGG. This command fails because we deleted the Docker container called LiferayGG.
+
+Type docker run --name LiferayGG -e POSTGRES_PASSWORD="1002" -d -p 5432:5432 postgres to recreate the Docker container.
+
+Type docker exec -it  LiferayGG psql -U postgres.
+
+
+To create a database, type: create database liferay1;
+
+Type \c liferay1; To connect to the liferay1.
+
+Type \l; This lists the databases.
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ liferaydb | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ mydata    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(5 rows)
+
+Type \dn;.
+  List of schemas
+  Name  |  Owner
+--------+----------
+ public | postgres
+(1 row)
+
+Type \dt;.
+
+Type \q to exit the container.
+
+Type d stop LiferayGG and d start LiferayGG to restart the container. This step is not necessary but is written here so you know how to restart a container based on its name.
+Connect to a Postgres server with a Postgres client over the network.
+
+Get your IP.
+
+***Type d run --rm -it mysql:8.0.22 mysql -h192.168.xxx.xxx -uroot -p. Replace 192.168.xxx.xxx with your IP.
+
+Type \q to exit the container.
+
+Type d start LiferayGG. This command fails because we deleted the Docker container called LiferayGG.
+
+Type docker run --name LiferayGG -e POSTGRES_PASSWORD="1002" -d -p 5432:5432 postgres to recreate the Docker container.
+
+Type docker exec -it  LiferayGG psql -U postgres.
+
+
+To create a database, type: create database liferay1;
+
+Type \c liferay1; To connect to the liferay1.
+
+Type \l; This lists the databases.
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ liferaydb | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ mydata    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(5 rows)
+
+Type \dn;.
+  List of schemas
+  Name  |  Owner
+--------+----------
+ public | postgres
+(1 row)
+
+Type \dt;.
+
+Type \q to exit the container.
+
+Type d stop LiferayGG and d start LiferayGG to restart the container. This step is not necessary but is written here so you know how to restart a container based on its name.
+Connect to a Postgres server with a Postgres client over the network.
+
+Get your IP.
+
+***Type d run --rm -it mysql:8.0.22 mysql -h192.168.xxx.xxx -uroot -p. Replace 192.168.xxx.xxx with your IP.
+
+Type \q to exit the container.
